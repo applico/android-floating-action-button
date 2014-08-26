@@ -44,8 +44,7 @@ public class FabView extends View {
 
     //Default values
     //TODO change this to pull from the dimensions file.
-    private static final int DEFAULT_RADIUS_CHECK = -10;
-    private static final int DEFAULT_RADIUS = 100;
+    private static final int DEFAULT_RADIUS = 0;
     private static final int DEFAULT_FILL_COLOR = Color.BLACK;
     private static final int DEFAULT_STROKE_COLOR = Color.BLUE;
     private static final int DEFAULT_START_ANGLE = 0;
@@ -190,7 +189,7 @@ public class FabView extends View {
         mCircleFillColor = attrsArray.getColor(R.styleable.fab_cFillColor, DEFAULT_FILL_COLOR);
         mCircleStrokeColor = attrsArray.getColor(R.styleable.fab_cStrokeColor, DEFAULT_STROKE_COLOR);
         mCircleStrokeWidth = attrsArray.getInteger(R.styleable.fab_cStrokeWidth, DEFAULT_STROKE_WIDTH);
-        mFabSize = attrsArray.getInteger(R.styleable.fab_cSize, DEFAULT_RADIUS_CHECK);
+        mFabSize = attrsArray.getInteger(R.styleable.fab_cSize, DEFAULT_RADIUS);
         mDrawable = attrsArray.getDrawable(R.styleable.fab_cDrawable);
         mDrawableHeight = mDrawable.getIntrinsicHeight();
         mDrawableWidth = mDrawable.getIntrinsicWidth();
@@ -201,7 +200,7 @@ public class FabView extends View {
         mOffsetLeft = mCircleRadius - (mDrawableWidth/2);
         mOffsetTop = mCircleRadius - (mDrawableWidth/2);
 
-        if(mCircleRadius != DEFAULT_RADIUS) {
+        if(mCircleRadius == DEFAULT_RADIUS) {
             if (mFabSize == FAB_SIZE_NORMAL) {
                 mCircleRadius = (DEFAULT_FAB_SIZE / 2);
             } else if (mFabSize == FAB_SIZE_MINI) {
