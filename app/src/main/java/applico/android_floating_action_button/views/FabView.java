@@ -196,10 +196,6 @@ public class FabView extends View {
         mStartAngle = DEFAULT_START_ANGLE;
         mEndAngle = DEFAULT_END_ANGLE;
 
-        //Compute the offset for the drawable
-        mOffsetLeft = mCircleRadius - (mDrawableWidth/2);
-        mOffsetTop = mCircleRadius - (mDrawableWidth/2);
-
         if(mCircleRadius == DEFAULT_RADIUS) {
             if (mFabSize == FAB_SIZE_NORMAL) {
                 mCircleRadius = (DEFAULT_FAB_SIZE / 2);
@@ -207,6 +203,11 @@ public class FabView extends View {
                 mCircleRadius = DEFAULT_FAB_MINI_SIZE / 2;
             }
         }
+
+        //Compute the offset for the drawable
+        mOffsetLeft = mCircleRadius - (mDrawableWidth/2);
+        mOffsetTop = mCircleRadius - (mDrawableWidth/2);
+
 
         //Set the outline for the elevation attribute
         mOutline = new Outline();
