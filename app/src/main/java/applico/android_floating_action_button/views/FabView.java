@@ -196,6 +196,16 @@ public class FabView extends View {
         mStartAngle = DEFAULT_START_ANGLE;
         mEndAngle = DEFAULT_END_ANGLE;
 
+        if(mDrawable != null) {
+            mDrawableHeight = mDrawable.getIntrinsicHeight();
+            mDrawableWidth = mDrawable.getIntrinsicWidth();
+        }
+        else
+        {
+            mDrawableHeight = 0;
+            mDrawableWidth = 0;
+        }
+
         if(mCircleRadius == DEFAULT_RADIUS) {
             if (mFabSize == FAB_SIZE_NORMAL) {
                 mCircleRadius = (DEFAULT_FAB_SIZE / 2);
