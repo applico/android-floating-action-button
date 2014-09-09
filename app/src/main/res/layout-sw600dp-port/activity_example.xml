@@ -7,7 +7,7 @@
                 android:paddingRight="@dimen/activity_horizontal_margin"
                 android:paddingTop="@dimen/activity_vertical_margin"
                 android:paddingBottom="@dimen/activity_vertical_margin"
-                android:background="@android:color/white"
+                android:background="@android:color/black"
                 tools:context=".ExampleActivity">
 
     <applico.android_floating_action_button.views.FabView
@@ -18,12 +18,15 @@
         android:layout_alignParentRight="true"
         android:layout_marginRight="16dp"
         android:layout_marginBottom="20dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:adjustViewBounds="true"
+        fab:cDrawable="@drawable/fab_icon_animation"
         fab:cFillColor="@color/fabColor"
         fab:cStrokeColor="@color/fabStrokeColor"
         fab:cStrokeWidth="2"
         fab:cSize="NORMAL"
         fab:cRadius="100"
-        fab:cDrawable="@drawable/icn_fab_favorite"
         />
 
 

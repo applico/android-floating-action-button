@@ -7,17 +7,20 @@ import android.graphics.Color;
 import android.graphics.Outline;
 import android.graphics.Paint;
 import android.graphics.RectF;
+import android.graphics.drawable.AnimatedStateListDrawable;
 import android.graphics.drawable.Drawable;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.View;
+import android.widget.ImageView;
+
 import applico.android_floating_action_button.R;
 
 /**
  * This class is a glorified CircleView class that we can use to create FAB buttons
  * in our applications. Its intended to have full attribute and getter/setter support
  */
-public class FabView extends View {
+public class FabView extends ImageView {
     private static String LOG_TAG = FabView.class.getSimpleName();
 
     //Initailize the object variables
@@ -60,10 +63,9 @@ public class FabView extends View {
     private static final int FAB_SIZE_NORMAL = 0;
     private static final int FAB_SIZE_MINI= 1;
 
-
-
     //TODO - support the context only constructor
     public FabView(Context context) {
+
         super(context);
     }
 
@@ -79,6 +81,9 @@ public class FabView extends View {
         mStrokePaint.setStyle(Paint.Style.STROKE);
         mStrokePaint.setStrokeWidth(mCircleStrokeWidth);
         mStrokePaint.setColor(mCircleStrokeColor);
+
+
+        //TODO Remove this
     }
 
     //TODO - support the context attribute set and defstyle constructor
@@ -90,7 +95,6 @@ public class FabView extends View {
     @Override
     protected void onDraw(Canvas canvas) {
         canvas.translate(1, 1);
-
         mCirclePaint.setColor(mCircleFillColor);
         canvas.drawArc(mCircleArc, mStartAngle, mEndAngle, true, mCirclePaint);
         canvas.drawArc(mCircleArc, mStartAngle, mEndAngle, true, mStrokePaint);
@@ -101,8 +105,6 @@ public class FabView extends View {
             mDrawable.draw(canvas);
         }
         this.setOutline(mOutline);
-
-
     }
 
     /**
@@ -191,8 +193,7 @@ public class FabView extends View {
         mCircleStrokeWidth = attrsArray.getInteger(R.styleable.fab_cStrokeWidth, DEFAULT_STROKE_WIDTH);
         mFabSize = attrsArray.getInteger(R.styleable.fab_cSize, DEFAULT_RADIUS);
         mDrawable = attrsArray.getDrawable(R.styleable.fab_cDrawable);
-        mDrawableHeight = mDrawable.getIntrinsicHeight();
-        mDrawableWidth = mDrawable.getIntrinsicWidth();
+
         mStartAngle = DEFAULT_START_ANGLE;
         mEndAngle = DEFAULT_END_ANGLE;
 
@@ -225,6 +226,7 @@ public class FabView extends View {
 
         attrsArray.recycle();
         this.bringToFront();
+        super.setImageDrawable(mDrawable);
     }
 
     /**
@@ -243,6 +245,7 @@ public class FabView extends View {
     public void setPaint(Paint p)
     {
         mCirclePaint = p;
+        invalidate();
     }
 
     /**
@@ -261,6 +264,7 @@ public class FabView extends View {
     public void setStrokePaint(Paint p)
     {
         mStrokePaint = p;
+        invalidate();
     }
 
     /**
@@ -270,6 +274,7 @@ public class FabView extends View {
     public void setCircleArc(RectF arc)
     {
         mCircleArc = arc;
+        invalidate();
     }
 
     /**
@@ -286,16 +291,17 @@ public class FabView extends View {
      * @param r
      */
 
-    public void setCircleRadius(int r)
+    public void setCRadius(int r)
     {
         mCircleRadius = r;
+        invalidate();
     }
 
     /**
      * Get the radius of the view
      * @return
      */
-    public int getCircleRadius()
+    public int getCRadius()
     {
         return mCircleRadius;
     }
@@ -304,16 +310,17 @@ public class FabView extends View {
      * Set the fill color
      * @param color
      */
-    public void setFillColor(int color)
+    public void setCFillColor(int color)
     {
         mCircleFillColor = color;
+        invalidate();
     }
 
     /**
      * Get the fill color
      * @return
      */
-    public int getFillColor()
+    public int getCFillColor()
     {
         return mCircleFillColor;
     }
@@ -322,7 +329,7 @@ public class FabView extends View {
      * Get the stroke color
      * @return
      */
-    public int getStrokeColor()
+    public int getCStrokeColor()
     {
         return mCircleStrokeColor;
     }
@@ -331,16 +338,17 @@ public class FabView extends View {
      * Set the stroke color
      * @param color
      */
-    public void setStrokeColor(int color)
+    public void setCStrokeColor(int color)
     {
         mCircleStrokeColor = color;
+        invalidate();
     }
 
     /**
      * Get the stroke width
      * @return
      */
-    public int getStrokeWidth()
+    public int getCStrokeWidth()
     {
         return mCircleStrokeWidth;
     }
@@ -349,16 +357,17 @@ public class FabView extends View {
      * Set the stroke width
      * @param width
      */
-    public void setStrokeWidth(int width)
+    public void setCStrokeWidth(int width)
     {
         mCircleStrokeWidth = width;
+        invalidate();
     }
 
     /**
      * Gets the example drawable attribute value.
      * @return The example drawable attribute value.
      */
-    public Drawable getDrawable() {
+    public Drawable getCDrawable() {
 
         return mDrawable;
     }
@@ -368,10 +377,17 @@ public class FabView extends View {
      * drawn above the text.
      * @param drawable attribute value to use.
      */
-    public void setDrawable(Drawable drawable) {
-
+    public void setCDrawable(AnimatedStateListDrawable drawable) {
         mDrawable = drawable;
+        //invalidate();
+        super.setImageDrawable(drawable);
+
     }
+
+
+
+
+
 
 
 }
