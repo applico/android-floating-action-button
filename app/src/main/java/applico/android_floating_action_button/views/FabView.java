@@ -10,15 +10,14 @@ import android.graphics.RectF;
 import android.graphics.drawable.AnimatedStateListDrawable;
 import android.graphics.drawable.Drawable;
 import android.util.AttributeSet;
-import android.util.Log;
-import android.view.View;
 import android.widget.ImageView;
 
 import applico.android_floating_action_button.R;
 
 /**
- * This class is a glorified CircleView class that we can use to create FAB buttons
- * in our applications. Its intended to have full attribute and getter/setter support
+ * This class is intended to imitate the Material Design Fab Button.  Google indicated that they will not be
+ * providing this view as part of a support package or the impending "L" release.
+ * @author Matt Powers
  */
 public class FabView extends ImageView {
     private static String LOG_TAG = FabView.class.getSimpleName();
@@ -77,13 +76,11 @@ public class FabView extends ImageView {
         //Initialize the stroke and paint objects
         mCirclePaint = new Paint(Paint.ANTI_ALIAS_FLAG);
         mCirclePaint.setStyle(Paint.Style.FILL);
+        mCirclePaint.setColor(mCircleFillColor);
         mStrokePaint = new Paint(Paint.ANTI_ALIAS_FLAG);
         mStrokePaint.setStyle(Paint.Style.STROKE);
         mStrokePaint.setStrokeWidth(mCircleStrokeWidth);
         mStrokePaint.setColor(mCircleStrokeColor);
-
-
-        //TODO Remove this
     }
 
     //TODO - support the context attribute set and defstyle constructor
@@ -95,7 +92,6 @@ public class FabView extends ImageView {
     @Override
     protected void onDraw(Canvas canvas) {
         canvas.translate(1, 1);
-        mCirclePaint.setColor(mCircleFillColor);
         canvas.drawArc(mCircleArc, mStartAngle, mEndAngle, true, mCirclePaint);
         canvas.drawArc(mCircleArc, mStartAngle, mEndAngle, true, mStrokePaint);
         if (mDrawable != null) {
@@ -105,6 +101,7 @@ public class FabView extends ImageView {
             mDrawable.draw(canvas);
         }
         this.setOutline(mOutline);
+        setClipToOutline(true);
     }
 
     /**
@@ -313,6 +310,7 @@ public class FabView extends ImageView {
     public void setCFillColor(int color)
     {
         mCircleFillColor = color;
+        mCirclePaint.setColor(mCircleFillColor);
         invalidate();
     }
 
@@ -341,6 +339,7 @@ public class FabView extends ImageView {
     public void setCStrokeColor(int color)
     {
         mCircleStrokeColor = color;
+        mStrokePaint.setColor(mCircleStrokeColor);
         invalidate();
     }
 
@@ -360,6 +359,7 @@ public class FabView extends ImageView {
     public void setCStrokeWidth(int width)
     {
         mCircleStrokeWidth = width;
+        mStrokePaint.setStrokeWidth(mCircleStrokeWidth);
         invalidate();
     }
 
@@ -383,11 +383,5 @@ public class FabView extends ImageView {
         super.setImageDrawable(drawable);
 
     }
-
-
-
-
-
-
 
 }

@@ -1,26 +1,27 @@
 package applico.android_floating_action_button.activities;
 
-import android.animation.StateListAnimator;
 import android.app.Activity;
 import android.graphics.drawable.AnimatedStateListDrawable;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
 import applico.android_floating_action_button.R;
-import applico.android_floating_action_button.views.CustomImageView;
 import applico.android_floating_action_button.views.FabView;
 
+/**
+ * This is a simple activity that powers the FabView. In instantiates the fab view and
+ * uses the state animation drawables to animate on the buttons
+ * @author Matt Powers
+ *
+ */
 
 public class ExampleActivity extends Activity implements View.OnClickListener {
 
     private static final String LOG_TAG = ExampleActivity.class.getSimpleName();
 
     private FabView mFabView;
-    private CustomImageView mTestView;
-    private boolean mChecked = false;
     private AnimatedStateListDrawable mDrawable;
 
 
@@ -31,6 +32,7 @@ public class ExampleActivity extends Activity implements View.OnClickListener {
         mFabView = (FabView)findViewById(R.id.fab_view);
         mFabView.setOnClickListener(this);
         mDrawable = (AnimatedStateListDrawable)mFabView.getCDrawable();
+
     }
 
 
@@ -55,7 +57,6 @@ public class ExampleActivity extends Activity implements View.OnClickListener {
 
     @Override
     public void onClick(View view) {
-        Log.e(LOG_TAG,"Clicked");
         if(mFabView.isSelected())
         {
             mFabView.setSelected(true);
@@ -68,6 +69,6 @@ public class ExampleActivity extends Activity implements View.OnClickListener {
             mFabView.setSelected(true);
         }
 
-
     }
+
 }
