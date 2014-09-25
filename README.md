@@ -43,6 +43,7 @@ This FAB has full attribute and getter setter support.  The supported attributes
 * cElevationOffsetY - this is not currently supported
 
 ###License
+```
 Copyright 2014 Applico, Inc.
 
 Licensed under the Apache License, Version 2.0 (the "License");
@@ -56,7 +57,7 @@ distributed under the License is distributed on an "AS IS" BASIS,
 WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
-
+```
 
 ###Screenshots
 ![alt tag](https://raw.githubusercontent.com/applico/android-floating-action-button/master/screenshots/screenshot_gangnam.png?token=2132637__eyJzY29wZSI6IlJhd0Jsb2I6YXBwbGljby9hbmRyb2lkLWZsb2F0aW5nLWFjdGlvbi1idXR0b24vbWFzdGVyL3NjcmVlbnNob3RzL3NjcmVlbnNob3RfZ2FuZ25hbS5wbmciLCJleHBpcmVzIjoxNDA5NDI4MjY1fQ%3D%3D--5f23bbabd099470e917241018ced7a6d943ec49a)
