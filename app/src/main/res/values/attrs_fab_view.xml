@@ -1,0 +1,17 @@
+<resources>
+    <declare-styleable name="fab">
+        <attr name="cRadius" format="integer" />
+        <attr name="cSize" format="enum">
+            <!-- 56dp -->
+            <enum name="NORMAL" value="0"/>
+            <!-- 40dp -->
+            <enum name="MINI" value="1"/>
+        </attr>
+        <attr name="cDefColor" format="color" />
+        <attr name="cSelectColor" format="color" />
+        <attr name="cStrokeColor" format="color" />
+        <attr name="cStrokeWidth" format="integer" />
+        <attr name="cDrawable" format="integer"/>
+    </declare-styleable>
+
+</resources>
