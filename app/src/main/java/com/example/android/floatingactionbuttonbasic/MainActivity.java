@@ -19,12 +19,16 @@
 
 package com.example.android.floatingactionbuttonbasic;
 
+import android.annotation.SuppressLint;
 import android.graphics.drawable.AnimatedStateListDrawable;
+import android.graphics.drawable.Drawable;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.app.FragmentTransaction;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.ViewAnimator;
 
 import com.example.android.common.activities.SampleActivityBase;
@@ -46,46 +50,72 @@ public class MainActivity extends SampleActivityBase implements View.OnClickList
 
     // Whether the Log Fragment is currently shown
     private boolean mLogShown;
-    AnimatedStateListDrawable mDrawable;
-    FabView mFabView;
+    Drawable mDrawable;
+    ImageView mFabView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        if(Build.VERSION.SDK_INT < 21) {
+            setContentView(R.layout.activity_backward);
+            mFabView = (FabViewBackward) findViewById(R.id.fab_view_details);
+            mFabView.setOnClickListener(this);
+            ((FabViewBackward)mFabView).setOnCheckedChangeListener(this);
+            mDrawable = null;
+        } else {
+            setContentView(R.layout.activity_main);
 
-        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-        FloatingActionButtonBasicFragment fragment = new FloatingActionButtonBasicFragment();
-        transaction.replace(R.id.sample_content_fragment, fragment);
-        transaction.commit();
+            FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+            FloatingActionButtonBasicFragment fragment = new FloatingActionButtonBasicFragment();
+            transaction.replace(R.id.sample_content_fragment, fragment);
+            transaction.commit();
+            mFabView = (FabView) findViewById(R.id.fab_view_details);
+            //mFabView.setTransitionName(SHARED_FAB_VIEW);
+            mFabView.setOnClickListener(this);
+            mDrawable = ((FabView)mFabView).getCDrawable();
+            ((FabView)mFabView).setOnCheckedChangeListener(this);
+        }
 
-        mFabView = (FabView) findViewById(R.id.fab_view_details);
-        //mFabView.setTransitionName(SHARED_FAB_VIEW);
-        mFabView.setOnClickListener(this);
-        mDrawable = (AnimatedStateListDrawable)mFabView.getCDrawable();
-        mFabView.setOnCheckedChangeListener(this);
+
+
     }
 
+    @SuppressLint("NewApi")
     @Override
     public void onClick(View view) {
         //this activity is click listening to only one object
         if (mFabView.isSelected()) {
-            mFabView.setSelected(true);
-            mDrawable.jumpToCurrentState();
-            mFabView.setSelected(false);
-            mFabView.setChecked(false);
+
+            if(mDrawable != null) {
+                mFabView.setSelected(true);
+                mDrawable.jumpToCurrentState();
+                ((FabView)mFabView).setChecked(false);
+                mFabView.setSelected(false);
+            } else {
+                ((FabViewBackward)mFabView).setChecked(false);
+                mFabView.setSelected(false);
+            }
+
+
         } else {
-            mFabView.setSelected(false);
-            mDrawable.jumpToCurrentState();
-            mFabView.setSelected(true);
-            mFabView.setChecked(true);
+            if(mDrawable != null) {
+                mFabView.setSelected(false);
+                mDrawable.jumpToCurrentState();
+                ((FabView)mFabView).setChecked(true);
+                mFabView.setSelected(true);
+            } else {
+                mFabView.setSelected(true);
+                ((FabViewBackward)mFabView).setChecked(true);
+            }
+
+
         }
-        Log.d(TAG, "FabView tap captured.");
+        Log.d(TAG, "FabView tap captured.\n");
     }
 
     @Override
     public void onCheckedChanged(FabView fabView, boolean isChecked) {
-        Log.d(TAG, String.format("FabView was %s.", isChecked ? "checked" : "unchecked"));
+        Log.d(TAG, String.format("FabView was %s.\n", isChecked ? "checked" : "unchecked"));
     }
 
     @Override

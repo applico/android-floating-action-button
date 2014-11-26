@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<animation-list xmlns:android="http://schemas.android.com/apk/res/android"
+    android:fillAfter="true"
+    android:oneshot="true">
+
+    <item android:drawable="@drawable/ic_frame_00031" android:duration="25" />
+    <item android:drawable="@drawable/ic_frame_00032" android:duration="25" />
+    <item android:drawable="@drawable/ic_frame_00033" android:duration="25" />
+    <item android:drawable="@drawable/ic_frame_00034" android:duration="25" />
+    <item android:drawable="@drawable/ic_frame_00035" android:duration="25" />
+    <item android:drawable="@drawable/ic_frame_00036" android:duration="25" />
+    <item android:drawable="@drawable/ic_frame_00037" android:duration="25" />
+    <item android:drawable="@drawable/ic_frame_00038" android:duration="25" />
+    <item android:drawable="@drawable/ic_frame_00039" android:duration="25" />
+    <item android:drawable="@drawable/ic_frame_00040" android:duration="25" />
+    <item android:drawable="@drawable/ic_frame_00041" android:duration="25" />
+    <item android:drawable="@drawable/ic_frame_00042" android:duration="25" />
+    <item android:drawable="@drawable/ic_frame_00043" android:duration="25" />
+    <item android:drawable="@drawable/ic_frame_00044" android:duration="25" />
+    <item android:drawable="@drawable/ic_frame_00045" android:duration="25" />
+
+    <item android:drawable="@drawable/ic_frame_00046" android:duration="25" />
+    <item android:drawable="@drawable/ic_frame_00047" android:duration="25" />
+    <item android:drawable="@drawable/ic_frame_00048" android:duration="25" />
+    <item android:drawable="@drawable/ic_frame_00049" android:duration="25" />
+    <item android:drawable="@drawable/ic_frame_00050" android:duration="25" />
+    <item android:drawable="@drawable/ic_frame_00051" android:duration="25" />
+    <item android:drawable="@drawable/ic_frame_00052" android:duration="25" />
+    <item android:drawable="@drawable/ic_frame_00053" android:duration="25" />
+    <item android:drawable="@drawable/ic_frame_00054" android:duration="25" />
+    <item android:drawable="@drawable/ic_frame_00055" android:duration="25" />
+    <item android:drawable="@drawable/ic_frame_00056" android:duration="25" />
+    <item android:drawable="@drawable/ic_frame_00057" android:duration="25" />
+    <item android:drawable="@drawable/ic_frame_00058" android:duration="25" />
+    <item android:drawable="@drawable/ic_frame_00059" android:duration="25" />
+    <item android:drawable="@drawable/ic_frame_00060" android:duration="25" />
+</animation-list>

@@ -29,16 +29,19 @@
         <ScrollView
               style="@style/Widget.SampleMessageTile"
               android:layout_width="match_parent"
-              android:layout_height="match_parent">
+              android:layout_height="wrap_content">
 
             <TextView
                   style="@style/Widget.SampleMessage"
                   android:layout_width="match_parent"
-                  android:layout_height="wrap_content"
+                  android:layout_height="match_parent"
                   android:paddingLeft="@dimen/horizontal_page_margin"
                   android:paddingRight="@dimen/horizontal_page_margin"
                   android:paddingTop="@dimen/vertical_page_margin"
                   android:paddingBottom="@dimen/vertical_page_margin"
+                  android:textColor="@android:color/black"
+                  android:textSize="24sp"
+                  android:layout_gravity="center"
                   android:text="@string/intro_message" />
         </ScrollView>
 
@@ -46,7 +49,12 @@
               android:name="com.example.android.common.logger.LogFragment"
               android:id="@+id/log_fragment"
               android:layout_width="match_parent"
-              android:layout_height="match_parent" />
+              android:layout_height="match_parent"
+            android:paddingLeft="@dimen/horizontal_page_margin"
+            android:paddingRight="@dimen/horizontal_page_margin"
+            android:paddingTop="@dimen/vertical_page_margin"
+            android:layout_marginBottom="@dimen/vertical_page_margin"
+            />
 
     </ViewAnimator>
 

@@ -1,0 +1,74 @@
+<!--  This layout contains only the backward compatible FAB -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/sample_main_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <ViewAnimator
+        android:id="@+id/sample_output"
+        android:layout_width="match_parent"
+        android:layout_height="0px"
+        android:layout_weight="1">
+
+        <ScrollView
+            style="@style/Widget.SampleMessageTile"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                style="@style/Widget.SampleMessage"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingBottom="@dimen/vertical_page_margin"
+                android:paddingLeft="@dimen/horizontal_page_margin"
+                android:paddingRight="@dimen/horizontal_page_margin"
+                android:paddingTop="@dimen/vertical_page_margin"
+                android:text="Animated Floating Action Button for Android 4.0"
+                android:textColor="@android:color/black"
+                android:textSize="24sp" />
+        </ScrollView>
+
+        <fragment
+            android:id="@+id/log_fragment"
+            android:name="com.example.android.common.logger.LogFragment"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+    </ViewAnimator>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@android:color/darker_gray" />
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="0px"
+        android:layout_weight="1">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="FabView on top using Relative Layout order to stack"
+            android:textSize="36sp" />
+
+        <com.example.android.floatingactionbuttonbasic.FabViewBackward xmlns:fab="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/fab_view_details"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginBottom="22dp"
+            android:layout_marginRight="32dp"
+            android:gravity="center"
+            fab:cDefColor="@color/fabColor"
+            fab:cDrawable="@drawable/backward_star"
+            fab:cRadius="96"
+            fab:cSelectColor="@color/fabSelectColor"
+            fab:cSize="NORMAL"
+            fab:cStrokeColor="@color/fabStrokeColor"
+            fab:cStrokeWidth="2" />
+    </RelativeLayout>
+</LinearLayout>
+
