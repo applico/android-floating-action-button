@@ -53,15 +53,17 @@
             android:text="FabView on top using Relative Layout order to stack"
             android:textSize="36sp" />
 
-        <com.example.android.floatingactionbuttonbasic.FabViewBackward xmlns:fab="http://schemas.android.com/apk/res-auto"
+        <com.example.android.floatingactionbuttonbasic.FabViewBackward
+            xmlns:fab="http://schemas.android.com/apk/res-auto"
             android:id="@+id/fab_view_details"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="56dp"
+            android:layout_height="56dp"
             android:layout_alignParentBottom="true"
             android:layout_alignParentRight="true"
             android:layout_marginBottom="22dp"
             android:layout_marginRight="32dp"
             android:gravity="center"
+            android:background="@drawable/backward_colorbg"
             fab:cDefColor="@color/fabColor"
             fab:cDrawable="@drawable/backward_star"
             fab:cRadius="96"

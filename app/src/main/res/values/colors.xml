@@ -20,8 +20,9 @@
     <color name="fab_color_2">#9c27b0</color>
     <color name="fab_color_2_muted">#a56ab0</color>
 
-    <color name="fabSelectColor">#eeb206</color>
-    <color name="fabColor">#ffc107</color>
-    <color name="fabStrokeColor">#dadada</color>
-    <color name="fabSelected">#ffffff</color>
+    <color name="fabSelectColor">#ffffd218</color>
+    <color name="fabColor">#ffffc107</color>
+    <color name="fabStrokeColor">#ffdadada</color>
+    <color name="fabPressed">#ffffff00</color>
+    <color name="fabDisabled">#ffcccccc</color>
 </resources>
